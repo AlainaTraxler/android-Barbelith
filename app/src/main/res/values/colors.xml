@@ -7,4 +7,6 @@
     <color name="colorConversationMain">#F44336</color>
     <color name="colorConversationAlpha">#FFEBEE</color>
     <color name="colorConversationBeta">#FFCDD2</color>
+
+    <color name="colorActionBar">#ffffff</color>
 </resources>
