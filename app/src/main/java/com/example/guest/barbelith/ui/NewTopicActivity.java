@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.guest.barbelith.R;
@@ -20,6 +21,7 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
     @Bind(R.id.editText_Topic) EditText mEditText_Title;
     @Bind(R.id.editText_Content) EditText mEditText_Content;
     @Bind(R.id.imageView_CreateTopic) ImageView mImageView_CreateTopic;
+    @Bind(R.id.relativeLayout_NewTopicActivity) RelativeLayout mRelativeLayout_NewTopicActivity;
 
     int mainColor;
     int betaColor;
@@ -39,6 +41,8 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
         betaColor = intent.getIntExtra("betaColor", 0);
         category = intent.getStringExtra("category");
         title = intent.getStringExtra("title");
+
+        mRelativeLayout_NewTopicActivity.setBackgroundColor(alphaColor);
 
         mImageView_CreateTopic.setOnClickListener(this);
     }

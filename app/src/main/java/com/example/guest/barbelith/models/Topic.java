@@ -9,6 +9,8 @@ public class Topic {
     String author;
     String category;
 
+    public Topic() {}
+
     public Topic(String _title, String _content, String _author, String _category){
         title = _title;
         content = _content;
