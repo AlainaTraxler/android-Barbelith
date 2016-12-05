@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.guest.barbelith.R;
 
-public class NewPostActivity extends AppCompatActivity {
+public class NewTopicActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post);
+        setContentView(R.layout.activity_new_topic);
     }
 }
