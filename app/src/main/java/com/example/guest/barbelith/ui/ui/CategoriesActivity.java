@@ -1,8 +1,10 @@
 package com.example.guest.barbelith.ui.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -54,10 +56,19 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v){
         String category;
         Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
+        int mainColor;
+        String alphaColor;
+        String betaColor;
 
         if(v == mButton_Conversation){
+            mainColor = getResources().getColor(R.color.colorConversationMain);
+            alphaColor = String.format("#%06X", (0xFFFFFF & getResources().getColor(R.color.colorConversationAlpha)));
+            betaColor = String.format("#%06X", (0xFFFFFF & getResources().getColor(R.color.colorConversationBeta)));
             intent.putExtra("category", "conversation");
-            intent.putExtra("Title", "Conversation");
+            intent.putExtra("title", "Conversation");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Policy){
             intent.putExtra("category", "policy");
         }else if(v == mButton_Head){
