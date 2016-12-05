@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.guest.barbelith.Categories">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conversation"
+                android:id="@+id/button_Conversation"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="#f44336"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Policy &amp; Help"
+                android:id="@+id/button_Policy"
+                android:layout_below="@+id/button_Conversation"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="#e91e63"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Head Shop"
+                android:id="@+id/button_Head"
+                android:layout_below="@+id/button_Policy"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"
+                android:background="#9c27b0" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laboratory"
+                android:id="@+id/button_Laboratory"
+                android:layout_below="@+id/button_Head"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"
+                android:background="#673ab7" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Switchboard"
+                android:id="@+id/button_Switchboard"
+                android:textColor="#ffffff"
+                android:background="#3F51B5"
+                android:layout_below="@+id/button_Laboratory"
+                android:layout_alignLeft="@+id/button_Laboratory"
+                android:layout_alignStart="@+id/button_Laboratory"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temple"
+                android:id="@+id/button_Temple"
+                android:textColor="#ffffff"
+                android:background="#2196F3"
+                android:layout_below="@+id/button_Switchboard"
+                android:layout_alignLeft="@+id/button_Switchboard"
+                android:layout_alignStart="@+id/button_Switchboard"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Art, Fashion &amp; Design"
+                android:id="@+id/button_Art"
+                android:textColor="#ffffff"
+                android:background="#03A9F4"
+                android:layout_below="@+id/button_Temple"
+                android:layout_alignLeft="@+id/button_Temple"
+                android:layout_alignStart="@+id/button_Temple"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Books, Criticism &amp; Writing"
+                android:id="@+id/button_Books"
+                android:textColor="#ffffff"
+                android:background="#00BCD4"
+                android:layout_below="@+id/button_Art"
+                android:layout_alignLeft="@+id/button_Art"
+                android:layout_alignStart="@+id/button_Art"
+                android:layout_alignRight="@+id/button_Art"
+                android:layout_alignEnd="@+id/button_Art" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comic Books"
+                android:id="@+id/button_Comic"
+                android:textColor="#ffffff"
+                android:background="#009688"
+                android:layout_below="@+id/button_Books"
+                android:layout_alignLeft="@+id/button_Books"
+                android:layout_alignStart="@+id/button_Books"
+                android:layout_alignRight="@+id/button_Books"
+                android:layout_alignEnd="@+id/button_Books" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Film, TV &amp; Theatre"
+                android:id="@+id/button_Film"
+                android:textColor="#ffffff"
+                android:background="#4CAF50"
+                android:layout_below="@+id/button_Comic"
+                android:layout_alignLeft="@+id/button_Comic"
+                android:layout_alignStart="@+id/button_Comic"
+                android:layout_alignRight="@+id/button_Comic"
+                android:layout_alignEnd="@+id/button_Comic" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Games &amp; Gameplay"
+                android:id="@+id/button_Games"
+                android:textColor="#ffffff"
+                android:background="#8BC34A"
+                android:layout_below="@+id/button_Film"
+                android:layout_alignLeft="@+id/button_Film"
+                android:layout_alignStart="@+id/button_Film"
+                android:layout_alignRight="@+id/button_Film"
+                android:layout_alignEnd="@+id/button_Film" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radio &amp; Music"
+                android:id="@+id/button_Radio"
+                android:textColor="#ffffff"
+                android:background="#CDDC39"
+                android:layout_below="@+id/button_Games"
+                android:layout_alignLeft="@+id/button_Games"
+                android:layout_alignStart="@+id/button_Games"
+                android:layout_alignRight="@+id/button_Games"
+                android:layout_alignEnd="@+id/button_Games" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Creation"
+                android:id="@+id/button_Creation"
+                android:textColor="#ffffff"
+                android:background="#FFEB3B"
+                android:layout_below="@+id/button_Radio"
+                android:layout_alignLeft="@+id/button_Radio"
+                android:layout_alignStart="@+id/button_Radio"
+                android:layout_alignRight="@+id/button_Radio"
+                android:layout_alignEnd="@+id/button_Radio" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laboratory"
+                android:id="@+id/Gathering"
+                android:textColor="#FFC107"
+                android:background="#673ab7"
+                android:layout_below="@+id/button_Creation"
+                android:layout_alignLeft="@+id/button_Creation"
+                android:layout_alignStart="@+id/button_Creation"
+                android:layout_alignRight="@+id/button_Creation"
+                android:layout_alignEnd="@+id/button_Creation" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
