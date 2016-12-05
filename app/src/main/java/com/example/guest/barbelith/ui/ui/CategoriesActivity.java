@@ -56,7 +56,8 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
 
         if(v == mButton_Conversation){
-            intent.putExtra("category", "");
+            intent.putExtra("category", "conversation");
+            intent.putExtra("Title", "Conversation");
         }else if(v == mButton_Policy){
             intent.putExtra("category", "policy");
         }else if(v == mButton_Head){
@@ -84,5 +85,6 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         }else if(v == mButton_Gathering){
             intent.putExtra("category", "gathering");
         }
+        startActivity(intent);
     }
 }

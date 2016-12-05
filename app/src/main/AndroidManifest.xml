@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ui.CategoriesActivity" />
-        <activity android:name=".ui.ui.CategoryActivity"></activity>
+        <activity android:name=".ui.ui.CategoryActivity" android:theme="@style/AppThemeWithBar"></activity>
     </application>
 
 </manifest>
