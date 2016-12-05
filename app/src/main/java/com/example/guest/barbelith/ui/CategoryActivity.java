@@ -1,4 +1,4 @@
-package com.example.guest.barbelith.ui.ui;
+package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.guest.barbelith.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.ButterKnife;
 
@@ -29,5 +31,8 @@ public class CategoryActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.colorConversationMain));
         actionBar.setBackgroundDrawable(new ColorDrawable(intent.getIntExtra("mainColor", 0)));
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("Test").setValue("Success");
     }
 }

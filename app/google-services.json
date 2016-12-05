@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "422423934578",
+    "firebase_url": "https://barbelith-6d24a.firebaseio.com",
+    "project_id": "barbelith-6d24a",
+    "storage_bucket": "barbelith-6d24a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422423934578:android:bb9c4a419900d7ec",
+        "android_client_info": {
+          "package_name": "com.example.guest.barbelith"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422423934578-3g8v58kjaf47cb0phlub79e59rvdb6dm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIacYKt2LwzTnb25oz8rMbTeM73SA2dIg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

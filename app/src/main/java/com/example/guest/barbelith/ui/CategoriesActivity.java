@@ -1,4 +1,4 @@
-package com.example.guest.barbelith.ui.ui;
+package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
