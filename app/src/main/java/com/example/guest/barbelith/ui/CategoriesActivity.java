@@ -57,13 +57,13 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         String category;
         Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
         int mainColor;
-        String alphaColor;
-        String betaColor;
+        int alphaColor;
+        int betaColor;
 
         if(v == mButton_Conversation){
             mainColor = getResources().getColor(R.color.colorConversationMain);
-            alphaColor = String.format("#%06X", (0xFFFFFF & getResources().getColor(R.color.colorConversationAlpha)));
-            betaColor = String.format("#%06X", (0xFFFFFF & getResources().getColor(R.color.colorConversationBeta)));
+            alphaColor = getResources().getColor(R.color.colorConversationAlpha);
+            betaColor = getResources().getColor(R.color.colorConversationBeta);
             intent.putExtra("category", "conversation");
             intent.putExtra("title", "Conversation");
             intent.putExtra("mainColor", mainColor);
