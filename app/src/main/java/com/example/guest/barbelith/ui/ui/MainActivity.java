@@ -1,4 +1,4 @@
-package com.example.guest.barbelith.ui;
+package com.example.guest.barbelith.ui.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
