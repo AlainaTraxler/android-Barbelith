@@ -3,43 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.NewTopicActivity"
     android:id="@+id/relativeLayout_NewTopicActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Category"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/CategoryToolbar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView_CreateTopic"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:foregroundGravity="right"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_add_circle_white_24dp" />
+    </android.support.v7.widget.Toolbar>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_Topic"
-        android:layout_alignParentTop="true"
+        android:hint="topic"
+        android:layout_below="@+id/toolbar_Category"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="topic"
-        android:layout_toLeftOf="@+id/imageView_CreateTopic"
-        android:layout_toStartOf="@+id/imageView_CreateTopic" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_Content"
+        android:hint="and your thoughts on it"
         android:layout_below="@+id/editText_Topic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="and your thoughts on it" />
+        android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView_CreateTopic"
-        android:layout_above="@+id/editText_Content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/grenade" />
 
 
 </RelativeLayout>

@@ -1,8 +1,11 @@
 package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,6 +44,16 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
         betaColor = intent.getIntExtra("betaColor", 0);
         category = intent.getStringExtra("category");
         title = intent.getStringExtra("title");
+
+        setTitle("New Topic");
+
+        ActionBar actionBar;
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_Category);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
+
 
         mRelativeLayout_NewTopicActivity.setBackgroundColor(alphaColor);
 
