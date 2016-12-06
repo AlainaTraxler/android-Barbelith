@@ -71,7 +71,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 //                    Log.d("Locations updated", "location: " + topicSnapshot.child("title").getValue());
 
                 }
-                mAdapter = new TopicListAdapter(getApplicationContext(), topics);
+                mAdapter = new TopicListAdapter(getApplicationContext(), topics, alphaColor, betaColor);
                 mRecyclerView.setAdapter(mAdapter);
                 RecyclerView.LayoutManager layoutManager =
                         new LinearLayoutManager(CategoryActivity.this);

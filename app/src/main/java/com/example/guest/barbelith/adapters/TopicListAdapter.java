@@ -1,6 +1,7 @@
 package com.example.guest.barbelith.adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +22,15 @@ import butterknife.ButterKnife;
 public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.TopicViewHolder> {
     private ArrayList<Topic> mTopics = new ArrayList<>();
     private Context mContext;
+    private int mFlipper = 0;
+    private int alphaColor;
+    private int betaColor;
 
-    public TopicListAdapter(Context context, ArrayList<Topic> topics) {
+    public TopicListAdapter(Context context, ArrayList<Topic> topics, int _alphaColor, int _betaColor) {
         mContext = context;
         mTopics = topics;
+        alphaColor = _alphaColor;
+        betaColor = _betaColor;
     }
 
     @Override
@@ -46,6 +52,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
 
     public class TopicViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.textView_Title) TextView mTextView_Title;
+
         private Context mContext;
 
         public TopicViewHolder(View itemView) {
@@ -55,7 +62,14 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
         }
 
         public void bindTopic(Topic topic) {
+            mFlipper++;
             mTextView_Title.setText(topic.getTitle());
+            if(mFlipper % 2 == 0){
+                mTextView_Title.setBackgroundColor(alphaColor);
+            }else{
+                mTextView_Title.setBackgroundColor(betaColor);
+            }
         }
     }
+
 }
