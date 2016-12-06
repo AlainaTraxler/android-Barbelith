@@ -1,6 +1,7 @@
 package com.example.guest.barbelith.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import com.example.guest.barbelith.R;
 import com.example.guest.barbelith.models.Topic;
+import com.example.guest.barbelith.ui.TopicDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -19,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Guest on 12/5/16.
  */
-public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.TopicViewHolder> {
+public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.TopicViewHolder>{
     private ArrayList<Topic> mTopics = new ArrayList<>();
     private Context mContext;
     private int mFlipper = 0;
@@ -50,7 +54,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
         return mTopics.size();
     }
 
-    public class TopicViewHolder extends RecyclerView.ViewHolder {
+    public class TopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @Bind(R.id.textView_Title) TextView mTextView_Title;
 
         private Context mContext;
@@ -59,6 +63,16 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, TopicDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("restaurants", Parcels.wrap(mTopics));
+            mContext.startActivity(intent);
         }
 
         public void bindTopic(Topic topic) {

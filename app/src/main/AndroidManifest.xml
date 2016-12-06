@@ -19,7 +19,8 @@
         <activity
             android:name=".ui.CategoryActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.NewTopicActivity"></activity>
+        <activity android:name=".ui.NewTopicActivity" />
+        <activity android:name=".ui.TopicDetailActivity"></activity>
     </application>
 
 </manifest>
