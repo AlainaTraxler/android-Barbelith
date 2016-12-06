@@ -11,6 +11,7 @@ public class Topic {
     String content;
     String author;
     String category;
+    String pushId;
 
     public Topic() {}
 
@@ -25,4 +26,7 @@ public class Topic {
     public String getContent() { return content; }
     public String getAuthor() { return author; }
     public String getCategory() { return category; }
+    public String getPushId() { return pushId; }
+
+    public void setPushId(String _pushId) { pushId = _pushId; }
 }

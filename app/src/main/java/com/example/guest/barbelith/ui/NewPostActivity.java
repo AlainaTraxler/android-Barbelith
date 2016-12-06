@@ -6,12 +6,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.guest.barbelith.R;
+import com.example.guest.barbelith.models.Post;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class NewPostActivity extends AppCompatActivity {
+public class NewPostActivity extends AppCompatActivity implements View.OnClickListener{
+    @Bind(R.id.imageView_CreatePost) ImageView mImageView_CreatePost;
     int mainColor;
     int betaColor;
     int alphaColor;
@@ -40,5 +48,24 @@ public class NewPostActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
+
+        mImageView_CreatePost.setOnClickListener(this);
+    }
+
+    public void onClick(View v){
+        Post post = new Post("One", "Two", "Three");
+
+        DatabaseReference topicRef = FirebaseDatabase
+                .getInstance()
+                .getReference("posts");
+        DatabaseReference mypostref = topicRef.push();
+        mypostref.setValue(post);
+
+        topicRef = FirebaseDatabase
+                .getInstance()
+                .getReference(category).child(mypostref.getKey()).child("replies");
+        mypostref.setValue(post);
+
+        Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
     }
 }

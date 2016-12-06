@@ -9,6 +9,7 @@ public class Post {
     String author;
     int upvotes = 0;
     int downvotes = 0;
+    String pushId;
 
     public Post(String _title, String _content, String _author){
         title = _title;

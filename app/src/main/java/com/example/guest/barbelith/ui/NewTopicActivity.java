@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -70,10 +71,14 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
         }else{
             Topic topic = new Topic(topicTitle, topicContent, "Nobody Special", category);
 
-            DatabaseReference restaurantRef = FirebaseDatabase
+            DatabaseReference topicRef = FirebaseDatabase
                     .getInstance()
                     .getReference(category);
-            restaurantRef.push().setValue(topic);
+            DatabaseReference mypostref = topicRef.push();
+            topic.setPushId(mypostref.getKey());
+            mypostref.setValue(topic);
+
+//            Log.v("--", mypostref.getKey());
             Toast.makeText(NewTopicActivity.this, "Topic Generated", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(NewTopicActivity.this, CategoryActivity.class);
