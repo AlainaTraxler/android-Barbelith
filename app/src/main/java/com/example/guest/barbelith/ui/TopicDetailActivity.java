@@ -56,6 +56,9 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
 
     public void onClick(View v){
         Intent intent = new Intent(TopicDetailActivity.this, NewPostActivity.class);
+        intent.putExtra("mainColor", mMainColor);
+        intent.putExtra("alphaColor", mBetaColor);
+        intent.putExtra("betaColor", mAlphaColor);
         startActivity(intent);
     }
 
