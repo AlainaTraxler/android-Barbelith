@@ -20,7 +20,8 @@
             android:name=".ui.CategoryActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.NewTopicActivity" />
-        <activity android:name=".ui.TopicDetailActivity"></activity>
+        <activity android:name=".ui.TopicDetailActivity" />
+        <activity android:name=".ui.NewPostActivity"></activity>
     </application>
 
 </manifest>

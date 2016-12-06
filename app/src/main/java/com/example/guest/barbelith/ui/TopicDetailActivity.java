@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.guest.barbelith.R;
@@ -16,8 +18,9 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TopicDetailActivity extends AppCompatActivity {
+public class TopicDetailActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.textView_TopicContent) TextView mTextView_TopicContent;
+    @Bind(R.id.imageView_NewPost) ImageView mImageView_NewPost;
 
     private Topic mTopic;
     private int mMainColor;
@@ -47,6 +50,13 @@ public class TopicDetailActivity extends AppCompatActivity {
 
         mTextView_TopicContent.setText(mTopic.getContent());
         mTextView_TopicContent.setBackgroundColor(mAlphaColor);
+
+        mImageView_NewPost.setOnClickListener(this);
+    }
+
+    public void onClick(View v){
+        Intent intent = new Intent(TopicDetailActivity.this, NewPostActivity.class);
+        startActivity(intent);
     }
 
 
