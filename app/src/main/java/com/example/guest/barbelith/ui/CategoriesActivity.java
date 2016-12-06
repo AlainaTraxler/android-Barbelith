@@ -61,40 +61,131 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         int betaColor;
 
         if(v == mButton_Conversation){
+            intent.putExtra("category", "conversation");
             mainColor = getResources().getColor(R.color.colorConversationMain);
             alphaColor = getResources().getColor(R.color.colorConversationAlpha);
             betaColor = getResources().getColor(R.color.colorConversationBeta);
-            intent.putExtra("category", "conversation");
             intent.putExtra("title", "Conversation");
             intent.putExtra("mainColor", mainColor);
             intent.putExtra("alphaColor", betaColor);
             intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Policy){
             intent.putExtra("category", "policy");
+            mainColor = getResources().getColor(R.color.colorPolicyMain);
+            alphaColor = getResources().getColor(R.color.colorPolicyAlpha);
+            betaColor = getResources().getColor(R.color.colorPolicyBeta);
+            intent.putExtra("title", "Policy");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Head){
             intent.putExtra("category", "head");
+            mainColor = getResources().getColor(R.color.colorHeadMain);
+            alphaColor = getResources().getColor(R.color.colorHeadAlpha);
+            betaColor = getResources().getColor(R.color.colorHeadBeta);
+            intent.putExtra("title", "Head");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Laboratory){
             intent.putExtra("category", "laboratory");
+            mainColor = getResources().getColor(R.color.colorLaboratoryMain);
+            alphaColor = getResources().getColor(R.color.colorLaboratoryAlpha);
+            betaColor = getResources().getColor(R.color.colorLaboratoryBeta);
+            intent.putExtra("title", "Laboratory");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Switchboard){
             intent.putExtra("category", "switchboard");
+            mainColor = getResources().getColor(R.color.colorSwitchboardMain);
+            alphaColor = getResources().getColor(R.color.colorSwitchboardAlpha);
+            betaColor = getResources().getColor(R.color.colorSwitchboardBeta);
+            intent.putExtra("title", "Switchboard");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Temple){
             intent.putExtra("category", "temple");
+            mainColor = getResources().getColor(R.color.colorTempleMain);
+            alphaColor = getResources().getColor(R.color.colorTempleAlpha);
+            betaColor = getResources().getColor(R.color.colorTempleBeta);
+            intent.putExtra("title", "Temple");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Art){
             intent.putExtra("category", "art");
+            mainColor = getResources().getColor(R.color.colorArtMain);
+            alphaColor = getResources().getColor(R.color.colorArtAlpha);
+            betaColor = getResources().getColor(R.color.colorArtBeta);
+            intent.putExtra("title", "Art");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Books){
             intent.putExtra("category", "books");
+            mainColor = getResources().getColor(R.color.colorBooksMain);
+            alphaColor = getResources().getColor(R.color.colorBooksAlpha);
+            betaColor = getResources().getColor(R.color.colorBooksBeta);
+            intent.putExtra("title", "Books");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Film){
             intent.putExtra("category", "film");
+            mainColor = getResources().getColor(R.color.colorComicMain);
+            alphaColor = getResources().getColor(R.color.colorComicAlpha);
+            betaColor = getResources().getColor(R.color.colorComicBeta);
+            intent.putExtra("title", "Comic");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Comic){
             intent.putExtra("category", "comic");
+            mainColor = getResources().getColor(R.color.colorFilmMain);
+            alphaColor = getResources().getColor(R.color.colorFilmAlpha);
+            betaColor = getResources().getColor(R.color.colorFilmBeta);
+            intent.putExtra("title", "Film");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Games){
             intent.putExtra("category", "games");
+            mainColor = getResources().getColor(R.color.colorGamesMain);
+            alphaColor = getResources().getColor(R.color.colorGamesAlpha);
+            betaColor = getResources().getColor(R.color.colorGamesBeta);
+            intent.putExtra("title", "Games");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Radio){
             intent.putExtra("category", "radio");
+            mainColor = getResources().getColor(R.color.colorRadioMain);
+            alphaColor = getResources().getColor(R.color.colorRadioAlpha);
+            betaColor = getResources().getColor(R.color.colorRadioBeta);
+            intent.putExtra("title", "Radio");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Creation){
             intent.putExtra("category", "creation");
+            mainColor = getResources().getColor(R.color.colorCreationMain);
+            alphaColor = getResources().getColor(R.color.colorCreationAlpha);
+            betaColor = getResources().getColor(R.color.colorCreationBeta);
+            intent.putExtra("title", "Creation");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Gathering){
             intent.putExtra("category", "gathering");
+            mainColor = getResources().getColor(R.color.colorGatheringMain);
+            alphaColor = getResources().getColor(R.color.colorGatheringAlpha);
+            betaColor = getResources().getColor(R.color.colorGatheringBeta);
+            intent.putExtra("title", "Gathering");
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
         }
         startActivity(intent);
     }
