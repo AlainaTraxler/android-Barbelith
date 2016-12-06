@@ -68,8 +68,6 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
                     Topic topic = topicSnapshot.getValue(Topic.class);
                     topics.add(topic);
-//                    Log.d("Locations updated", "location: " + topicSnapshot.child("title").getValue());
-
                 }
                 mAdapter = new TopicListAdapter(getApplicationContext(), topics, alphaColor, betaColor, mainColor);
                 mRecyclerView.setAdapter(mAdapter);

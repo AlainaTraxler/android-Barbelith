@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
 
 public class NewPostActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.imageView_CreatePost) ImageView mImageView_CreatePost;
+    @Bind(R.id.editText_Content) EditText mEditText_Content;
+
     int mainColor;
     int betaColor;
     int alphaColor;
@@ -56,20 +59,27 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void onClick(View v){
-        Post post = new Post("One", "Two", "Three");
+        String content = mEditText_Content.getText().toString();
 
-        DatabaseReference databaseRef = FirebaseDatabase
-                .getInstance()
-                .getReference("posts");
-        DatabaseReference mypostref = databaseRef.push();
-        post.setPushId(mypostref.getKey());
-        mypostref.setValue(post);
+        if(content.length() < 75){
+            Toast.makeText(NewPostActivity.this, "Please enter content of 75 characters or more.", Toast.LENGTH_SHORT).show();
+        }else{
+            Post post = new Post(content, "Nobody Special");
+            post.setTopicId(topicPushId);
 
-        databaseRef = FirebaseDatabase
-                .getInstance()
-                .getReference(category).child(topicPushId).child("replies").child(post.getPushId());
-        databaseRef.setValue(post);
+            DatabaseReference databaseRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference("posts");
+            DatabaseReference mypostref = databaseRef.push();
+            post.setPushId(mypostref.getKey());
+            mypostref.setValue(post);
 
-        Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
+            databaseRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(category).child(topicPushId).child("replies").child(post.getPushId());
+            databaseRef.setValue(true);
+
+            Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
+        }
     }
 }

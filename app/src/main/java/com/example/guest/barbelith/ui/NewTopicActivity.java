@@ -78,7 +78,7 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
             topic.setPushId(mypostref.getKey());
             mypostref.setValue(topic);
 
-//            Log.v("--", mypostref.getKey());
+
             Toast.makeText(NewTopicActivity.this, "Topic Generated", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(NewTopicActivity.this, CategoryActivity.class);
