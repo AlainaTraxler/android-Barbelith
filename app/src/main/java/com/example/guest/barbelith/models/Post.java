@@ -22,4 +22,7 @@ public class Post {
     public String getAuthor(){ return author; }
     public int getUpvotes(){ return upvotes; }
     public int getDownvotes(){ return downvotes; }
+    public String getPushId() { return pushId; }
+
+    public void setPushId(String _pushId) { pushId = _pushId; }
 }

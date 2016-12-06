@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     int alphaColor;
     String category;
     String title;
+    String topicPushId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
         betaColor = intent.getIntExtra("betaColor", 0);
         category = intent.getStringExtra("category");
         title = intent.getStringExtra("title");
+        topicPushId = intent.getStringExtra("topicPushId");
 
         setTitle("New Reply");
 
@@ -55,16 +58,17 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v){
         Post post = new Post("One", "Two", "Three");
 
-        DatabaseReference topicRef = FirebaseDatabase
+        DatabaseReference databaseRef = FirebaseDatabase
                 .getInstance()
                 .getReference("posts");
-        DatabaseReference mypostref = topicRef.push();
+        DatabaseReference mypostref = databaseRef.push();
+        post.setPushId(mypostref.getKey());
         mypostref.setValue(post);
 
-        topicRef = FirebaseDatabase
+        databaseRef = FirebaseDatabase
                 .getInstance()
-                .getReference(category).child(mypostref.getKey()).child("replies");
-        mypostref.setValue(post);
+                .getReference(category).child(topicPushId).child("replies").child(post.getPushId());
+        databaseRef.setValue(post);
 
         Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
     }

@@ -59,6 +59,8 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
         intent.putExtra("mainColor", mMainColor);
         intent.putExtra("alphaColor", mBetaColor);
         intent.putExtra("betaColor", mAlphaColor);
+        intent.putExtra("topicPushId", mTopic.getPushId());
+        intent.putExtra("category", mTopic.getCategory());
         startActivity(intent);
     }
 

@@ -87,6 +87,7 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("mainColor", mainColor);
             intent.putExtra("alphaColor", betaColor);
             intent.putExtra("betaColor", alphaColor);
+            intent.putExtra("betaColor", alphaColor);
             startActivity(intent);
         }
 
