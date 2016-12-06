@@ -48,20 +48,29 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void onClick(View v){
-        Topic topic = new Topic(mEditText_Title.getText().toString(), mEditText_Content.getText().toString(), "Nobody Special", category);
+        String topicTitle = mEditText_Title.getText().toString();
+        String topicContent = mEditText_Content.getText().toString();
+        if(topicTitle.equals("") || topicTitle.length() > 75){
+            Toast.makeText(NewTopicActivity.this, "Please enter a title of 75 characters or less.", Toast.LENGTH_SHORT).show();
+        }else if(topicContent.equals("") || topicContent.length() < 75){
+            Toast.makeText(NewTopicActivity.this, "Please enter content of 75 characters or more.", Toast.LENGTH_SHORT).show();
+        }else{
+            Topic topic = new Topic(topicTitle, topicContent, "Nobody Special", category);
 
-        DatabaseReference restaurantRef = FirebaseDatabase
-                .getInstance()
-                .getReference(category);
-        restaurantRef.push().setValue(topic);
-        Toast.makeText(NewTopicActivity.this, "Topic Generated", Toast.LENGTH_SHORT).show();
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(category);
+            restaurantRef.push().setValue(topic);
+            Toast.makeText(NewTopicActivity.this, "Topic Generated", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(NewTopicActivity.this, CategoryActivity.class);
-        intent.putExtra("category", category);
-        intent.putExtra("title", title);
-        intent.putExtra("mainColor", mainColor);
-        intent.putExtra("alphaColor", betaColor);
-        intent.putExtra("betaColor", alphaColor);
-        startActivity(intent);
+            Intent intent = new Intent(NewTopicActivity.this, CategoryActivity.class);
+            intent.putExtra("category", category);
+            intent.putExtra("title", title);
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", betaColor);
+            intent.putExtra("betaColor", alphaColor);
+            startActivity(intent);
+        }
+
     }
 }

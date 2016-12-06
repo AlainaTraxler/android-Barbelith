@@ -29,12 +29,14 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
     private int mFlipper = 0;
     private int alphaColor;
     private int betaColor;
+    private int mainColor;
 
-    public TopicListAdapter(Context context, ArrayList<Topic> topics, int _alphaColor, int _betaColor) {
+    public TopicListAdapter(Context context, ArrayList<Topic> topics, int _alphaColor, int _betaColor, int _mainColor) {
         mContext = context;
         mTopics = topics;
         alphaColor = _alphaColor;
         betaColor = _betaColor;
+        mainColor = _mainColor;
     }
 
     @Override
@@ -70,8 +72,10 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, TopicDetailActivity.class);
-            intent.putExtra("position", itemPosition);
-            intent.putExtra("restaurants", Parcels.wrap(mTopics));
+            intent.putExtra("topic", Parcels.wrap(mTopics.get(itemPosition)));
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", alphaColor);
+            intent.putExtra("betaColor", betaColor);
             mContext.startActivity(intent);
         }
 
