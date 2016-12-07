@@ -2,6 +2,7 @@ package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
     ArrayList<Post> mPosts = new ArrayList<Post>();
     private RepliesListAdapter mAdapter;
     private DatabaseReference mReplies;
+    private DatabaseReference mPostsRef;
+    private DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +67,29 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                 .getReference()
                 .child(mTopic.getCategory()).child(mTopic.getPushId()).child("replies");
 
+        mPostsRef = FirebaseDatabase
+                .getInstance()
+                .getReference("posts");
+
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
+
         setTitle(mTopic.getTitle());
 
-        mReplies.addValueEventListener(new ValueEventListener() {
 
+
+        //------------------------
+        mAdapter = new RepliesListAdapter(getApplicationContext(), mPosts, mAlphaColor, mBetaColor, mMainColor);
+        mRecyclerView.setAdapter(mAdapter);
+        RecyclerView.LayoutManager layoutManager =
+                new LinearLayoutManager(TopicDetailActivity.this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+
+        mReplies.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                mPosts.clear();
                 //In here we have a list of post IDs
                 for (DataSnapshot repliesSnapshot : dataSnapshot.getChildren()) {
 
@@ -85,6 +104,7 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                             Post post = dataSnapshot.getValue(Post.class);
                             mPosts.add(post);
+                            mAdapter.notifyDataSetChanged();
                         }
 
                         @Override
@@ -100,13 +120,6 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                         public void onCancelled(DatabaseError databaseError) {}
                     });
                 }
-                mAdapter = new RepliesListAdapter(getApplicationContext(), mPosts, mAlphaColor, mBetaColor, mMainColor);
-                mRecyclerView.setAdapter(mAdapter);
-                RecyclerView.LayoutManager layoutManager =
-                        new LinearLayoutManager(TopicDetailActivity.this);
-                mRecyclerView.setLayoutManager(layoutManager);
-                mRecyclerView.setHasFixedSize(true);
-
             }
 
             @Override
@@ -133,6 +146,7 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
         intent.putExtra("betaColor", mAlphaColor);
         intent.putExtra("topicPushId", mTopic.getPushId());
         intent.putExtra("category", mTopic.getCategory());
+        intent.putExtra("topic", Parcels.wrap(mTopic));
         startActivity(intent);
     }
 

@@ -14,8 +14,11 @@ import android.widget.Toast;
 
 import com.example.guest.barbelith.R;
 import com.example.guest.barbelith.models.Post;
+import com.example.guest.barbelith.models.Topic;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,6 +33,7 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     String category;
     String title;
     String topicPushId;
+    Topic mTopic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
         category = intent.getStringExtra("category");
         title = intent.getStringExtra("title");
         topicPushId = intent.getStringExtra("topicPushId");
+        mTopic = Parcels.unwrap(intent.getParcelableExtra("topic"));
 
         setTitle("New Reply");
 
@@ -80,6 +85,15 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
             databaseRef.setValue(true);
 
             Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(NewPostActivity.this, TopicDetailActivity.class);
+            intent.putExtra("category", category);
+            intent.putExtra("title", title);
+            intent.putExtra("mainColor", mainColor);
+            intent.putExtra("alphaColor", alphaColor);
+            intent.putExtra("betaColor", betaColor);
+            intent.putExtra("topic", Parcels.wrap(mTopic));
+            startActivity(intent);
         }
     }
 }
