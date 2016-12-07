@@ -46,8 +46,6 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
     ArrayList<Post> mPosts = new ArrayList<Post>();
     private RepliesListAdapter mAdapter;
     private DatabaseReference mReplies;
-    private DatabaseReference mPostsRef;
-    private DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +64,6 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                 .getInstance()
                 .getReference()
                 .child(mTopic.getCategory()).child(mTopic.getPushId()).child("replies");
-
-        mPostsRef = FirebaseDatabase
-                .getInstance()
-                .getReference("posts");
-
-        dbRef = FirebaseDatabase.getInstance().getReference();
-
 
         setTitle(mTopic.getTitle());
 
