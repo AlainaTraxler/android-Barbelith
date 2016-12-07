@@ -12,7 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.imageView_Grenade) ImageView mImageView_Grenade;
+    @Bind(R.id.imageView_Barbelith) ImageView mImageView_Barbelith;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +20,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mImageView_Grenade.setOnClickListener(this);
+        mImageView_Barbelith.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        if(v == mImageView_Grenade){
-            Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+        if(v == mImageView_Barbelith){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
     }
