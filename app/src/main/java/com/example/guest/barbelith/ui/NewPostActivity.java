@@ -23,7 +23,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class NewPostActivity extends AppCompatActivity implements View.OnClickListener{
+public class NewPostActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.imageView_CreatePost) ImageView mImageView_CreatePost;
     @Bind(R.id.editText_Content) EditText mEditText_Content;
 

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CategoryActivity extends AppCompatActivity implements View.OnClickListener{
+public class CategoryActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.imageView_NewPost) ImageView mImageView_NewPost;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
@@ -88,6 +88,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
+        toolbar.showOverflowMenu();
 
         mImageView_NewPost.setOnClickListener(this);
     }

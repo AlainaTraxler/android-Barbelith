@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class NewTopicActivity extends AppCompatActivity implements View.OnClickListener{
+public class NewTopicActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.editText_Topic) EditText mEditText_Title;
     @Bind(R.id.editText_Content) EditText mEditText_Content;
     @Bind(R.id.imageView_CreateTopic) ImageView mImageView_CreateTopic;

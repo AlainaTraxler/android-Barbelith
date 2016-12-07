@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TopicDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class TopicDetailActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.textView_TopicContent) TextView mTextView_TopicContent;
     @Bind(R.id.imageView_NewPost) ImageView mImageView_NewPost;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;

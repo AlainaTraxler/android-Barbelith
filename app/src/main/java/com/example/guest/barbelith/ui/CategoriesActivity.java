@@ -3,8 +3,10 @@ package com.example.guest.barbelith.ui;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CategoriesActivity extends AppCompatActivity implements View.OnClickListener{
+public class CategoriesActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.button_Conversation) Button mButton_Conversation;
     @Bind(R.id.button_Policy) Button mButton_Policy;
     @Bind(R.id.button_Head) Button mButton_Head;
@@ -59,9 +61,14 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
             }
         };
 
-        if(mAuth.getCurrentUser() != null){
-            Log.v(">>>>>>>>", mAuth.getCurrentUser().getUid());
-        }
+        ActionBar actionBar;
+
+        setTitle("Barbelith");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_Category);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+//        actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
+        toolbar.showOverflowMenu();
 
         mButton_Conversation.setOnClickListener(this);
         mButton_Policy.setOnClickListener(this);
