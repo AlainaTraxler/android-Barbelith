@@ -1,9 +1,6 @@
 package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.BinderThread;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,14 +20,14 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.imageView_Signin) ImageView mImageView_Signin;
     @Bind(R.id.imageView_Signup) ImageView mImageView_Signup;
     @Bind(R.id.editText_Email) EditText mEditText_Email;
     @Bind(R.id.editText_Password) EditText mEditText_Password;
 
-//    private FirebaseAuth mAuth;
-//    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +35,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-//        mAuth = FirebaseAuth.getInstance();
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if (user != null) {
-//                    // User is signed in
-//                    Log.d("", "onAuthStateChanged:signed_in:" + user.getUid());
-//                } else {
-//                    // User is signed out
-//                    Log.d("", "onAuthStateChanged:signed_out");
-//                }
-//                // ...
-//            }
-//        };
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d("", "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d("", "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
 
 
 
@@ -84,8 +81,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-
+                        if (task.isSuccessful()) {
+                            Intent intent = new Intent(LoginActivity.this, CategoriesActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Signed up", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
                         }
 
                         // ...
@@ -104,9 +105,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-
+                        if (task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Signed in", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, CategoriesActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Sign in failed", Toast.LENGTH_SHORT).show();
                         }
+
 
                         // ...
                     }
@@ -123,20 +129,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 Toast.makeText(LoginActivity.this, "Sign up requires a valid e-mail and password", Toast.LENGTH_SHORT).show();
             }else{
                 createUser(email, password);
-                Toast.makeText(LoginActivity.this, "Signed up", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, CategoriesActivity.class);
-                startActivity(intent);
             }
 
-        }if(v == mImageView_Signin){
+        }else if(v == mImageView_Signin){
             if(email.equals("") || password.equals("")){
                 Toast.makeText(LoginActivity.this, "Sign in requires a valid e-mail and password", Toast.LENGTH_SHORT).show();
             }else{
+                Log.v(email, password);
                 signinUser(email, password);
-                Toast.makeText(LoginActivity.this, "Signed in", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, CategoriesActivity.class);
-                startActivity(intent);
             }
         }
     }
+
 }

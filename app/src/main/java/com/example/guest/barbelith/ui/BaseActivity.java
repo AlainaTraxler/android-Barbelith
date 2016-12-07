@@ -36,7 +36,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        postReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_POST_QUERY);
         mContext = this;
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -49,11 +48,8 @@ public class BaseActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
-                }else if(user == null && !(mContext instanceof LoginActivity)){
-                    Intent intent = new Intent(mContext, LoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+                }else if(user != null){
+                    Log.v("currentUser: ", mAuth.getCurrentUser().getUid());
                 }
             }
         };

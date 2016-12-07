@@ -71,13 +71,16 @@ public class NewTopicActivity extends BaseActivity implements View.OnClickListen
         }else{
             Topic topic = new Topic(topicTitle, topicContent, mAuth.getCurrentUser().getUid(), category);
 
-            DatabaseReference topicRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(category);
-            DatabaseReference mypostref = topicRef.push();
+            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+
+//            DatabaseReference topicRef = FirebaseDatabase
+//                    .getInstance()
+//                    .getReference(category);
+            DatabaseReference mypostref = dbRef.child(category).push();
             topic.setPushId(mypostref.getKey());
             mypostref.setValue(topic);
 
+            dbRef.child("users/topics").child(mypostref.getKey());
 
             Toast.makeText(NewTopicActivity.this, "Topic Generated", Toast.LENGTH_SHORT).show();
 
