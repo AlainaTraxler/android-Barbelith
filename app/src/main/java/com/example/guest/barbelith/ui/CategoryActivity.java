@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -20,8 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -97,14 +94,12 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
     public void onClick(View v){
         if(v == mImageView_NewPost){
-
-
             Intent intent = new Intent(CategoryActivity.this, NewTopicActivity.class);
             intent.putExtra("category", category);
             intent.putExtra("title", title);
             intent.putExtra("mainColor", mainColor);
-            intent.putExtra("alphaColor", betaColor);
-            intent.putExtra("betaColor", alphaColor);
+            intent.putExtra("alphaColor", alphaColor);
+            intent.putExtra("betaColor", betaColor);
             startActivity(intent);
         }
     }

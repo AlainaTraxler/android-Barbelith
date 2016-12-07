@@ -56,7 +56,7 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
         actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
 
 
-        mRelativeLayout_NewTopicActivity.setBackgroundColor(alphaColor);
+//        mRelativeLayout_NewTopicActivity.setBackgroundColor(betaColor);
 
         mImageView_CreateTopic.setOnClickListener(this);
     }
@@ -85,9 +85,8 @@ public class NewTopicActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("category", category);
             intent.putExtra("title", title);
             intent.putExtra("mainColor", mainColor);
-            intent.putExtra("alphaColor", betaColor);
-            intent.putExtra("betaColor", alphaColor);
-            intent.putExtra("betaColor", alphaColor);
+            intent.putExtra("alphaColor", alphaColor);
+            intent.putExtra("betaColor", betaColor);
             startActivity(intent);
         }
 

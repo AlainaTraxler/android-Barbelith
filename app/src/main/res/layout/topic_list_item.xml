@@ -10,5 +10,6 @@
             android:id="@+id/textView_Title"
             android:textAlignment="viewEnd"
             android:gravity="end"
+            android:paddingLeft="10dp"
             android:paddingRight="10dp"/>
 </RelativeLayout>

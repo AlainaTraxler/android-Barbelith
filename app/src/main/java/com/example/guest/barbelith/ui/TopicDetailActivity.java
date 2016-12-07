@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.guest.barbelith.R;
-import com.example.guest.barbelith.adapters.TopicListAdapter;
+import com.example.guest.barbelith.adapters.RepliesListAdapter;
 import com.example.guest.barbelith.models.Post;
 import com.example.guest.barbelith.models.Topic;
 import com.google.firebase.database.ChildEventListener;
@@ -35,14 +35,16 @@ import butterknife.ButterKnife;
 public class TopicDetailActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.textView_TopicContent) TextView mTextView_TopicContent;
     @Bind(R.id.imageView_NewPost) ImageView mImageView_NewPost;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     private Topic mTopic;
     private int mMainColor;
     private int mAlphaColor;
     private int mBetaColor;
 
+    ArrayList<Post> mPosts = new ArrayList<Post>();
+    private RepliesListAdapter mAdapter;
     private DatabaseReference mReplies;
-//    private RepliesListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                             Post post = dataSnapshot.getValue(Post.class);
+                            mPosts.add(post);
                         }
 
                         @Override
@@ -97,6 +100,13 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
                         public void onCancelled(DatabaseError databaseError) {}
                     });
                 }
+                mAdapter = new RepliesListAdapter(getApplicationContext(), mPosts, mAlphaColor, mBetaColor, mMainColor);
+                mRecyclerView.setAdapter(mAdapter);
+                RecyclerView.LayoutManager layoutManager =
+                        new LinearLayoutManager(TopicDetailActivity.this);
+                mRecyclerView.setLayoutManager(layoutManager);
+                mRecyclerView.setHasFixedSize(true);
+
             }
 
             @Override
