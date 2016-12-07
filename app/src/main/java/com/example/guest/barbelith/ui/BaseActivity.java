@@ -30,7 +30,6 @@ public class BaseActivity extends AppCompatActivity {
     public FirebaseAuth mAuth;
     public FirebaseAuth.AuthStateListener mAuthListener;
     public String userName;
-    Overflow mOverflow;
     Context mContext;
 
     @Override
@@ -47,6 +46,11 @@ public class BaseActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user != null && mContext instanceof MainActivity) {
                     Intent intent = new Intent(mContext, CategoriesActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }else if(user == null && !(mContext instanceof LoginActivity)){
+                    Intent intent = new Intent(mContext, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
