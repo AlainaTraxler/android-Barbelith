@@ -72,17 +72,15 @@ public class NewPostActivity extends BaseActivity implements View.OnClickListene
             Post post = new Post(content, mAuth.getCurrentUser().getUid());
             post.setTopicId(topicPushId);
 
-            DatabaseReference databaseRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference("posts");
-            DatabaseReference mypostref = databaseRef.push();
+            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+
+            DatabaseReference mypostref = dbRef.child("posts").push();
             post.setPushId(mypostref.getKey());
             mypostref.setValue(post);
 
-            databaseRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(category).child(topicPushId).child("replies").child(post.getPushId());
-            databaseRef.setValue(true);
+            dbRef.child(category).child(topicPushId).child("replies").child(post.getPushId()).setValue(true);
+
+            dbRef.child("users").child(mAuth.getCurrentUser().getUid()).child("posts").child(mypostref.getKey()).setValue(true);
 
             Toast.makeText(NewPostActivity.this, "Post Generated", Toast.LENGTH_SHORT).show();
 
