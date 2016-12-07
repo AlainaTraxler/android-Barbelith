@@ -143,10 +143,10 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
             intent.putExtra("betaColor", alphaColor);
         }else if(v == mButton_Comic){
             intent.putExtra("category", "comic");
-            mainColor = getResources().getColor(R.color.colorFilmMain);
-            alphaColor = getResources().getColor(R.color.colorFilmAlpha);
-            betaColor = getResources().getColor(R.color.colorFilmBeta);
-            intent.putExtra("title", "Film");
+            mainColor = getResources().getColor(R.color.colorComicMain);
+            alphaColor = getResources().getColor(R.color.colorComicAlpha);
+            betaColor = getResources().getColor(R.color.colorComicBeta);
+            intent.putExtra("title", "Comic Books");
             intent.putExtra("mainColor", mainColor);
             intent.putExtra("alphaColor", betaColor);
             intent.putExtra("betaColor", alphaColor);
