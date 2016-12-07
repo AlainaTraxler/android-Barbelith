@@ -24,7 +24,7 @@ public class Topic {
 
     public String getTitle(){ return title; }
     public String getContent() { return content; }
-    public String getuserId() { return userId; }
+    public String getUserId() { return userId; }
     public String getCategory() { return category; }
     public String getPushId() { return pushId; }
 
