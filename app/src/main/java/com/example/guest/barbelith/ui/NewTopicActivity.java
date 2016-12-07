@@ -69,7 +69,7 @@ public class NewTopicActivity extends BaseActivity implements View.OnClickListen
         }else if(topicContent.equals("") || topicContent.length() < 75){
             Toast.makeText(NewTopicActivity.this, "Please enter content of 75 characters or more.", Toast.LENGTH_SHORT).show();
         }else{
-            Topic topic = new Topic(topicTitle, topicContent, "Nobody Special", category);
+            Topic topic = new Topic(topicTitle, topicContent, mAuth.getCurrentUser().getUid(), category);
 
             DatabaseReference topicRef = FirebaseDatabase
                     .getInstance()

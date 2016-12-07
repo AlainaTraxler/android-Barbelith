@@ -9,22 +9,22 @@ import org.parceler.Parcel;
 public class Topic {
     String title;
     String content;
-    String author;
+    String userId;
     String category;
     String pushId;
 
     public Topic() {}
 
-    public Topic(String _title, String _content, String _author, String _category){
+    public Topic(String _title, String _content, String _userId, String _category){
         title = _title;
         content = _content;
-        author = _author;
+        userId = _userId;
         category = _category;
     }
 
     public String getTitle(){ return title; }
     public String getContent() { return content; }
-    public String getAuthor() { return author; }
+    public String getuserId() { return userId; }
     public String getCategory() { return category; }
     public String getPushId() { return pushId; }
 
