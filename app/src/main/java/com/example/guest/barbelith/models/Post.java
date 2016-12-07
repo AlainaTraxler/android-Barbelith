@@ -5,21 +5,21 @@ package com.example.guest.barbelith.models;
  */
 public class Post {
     String content;
-    String author;
     int upvotes = 0;
     int downvotes = 0;
     String pushId;
     String topicId;
+    String userId;
 
     public Post() {};
 
-    public Post(String _content, String _author){
+    public Post(String _content, String _userId){
         content = _content;
-        author = _author;
+        userId = _userId;
     }
 
     public String getContent(){ return content; }
-    public String getAuthor(){ return author; }
+    public String getUserId(){ return userId; }
     public int getUpvotes(){ return upvotes; }
     public int getDownvotes(){ return downvotes; }
     public String getPushId() { return pushId; }

@@ -5,9 +5,13 @@ package com.example.guest.barbelith.ui;
  */
 
         import android.content.Context;
+        import android.content.Intent;
         import android.support.annotation.NonNull;
+        import android.support.v7.app.ActionBar;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.support.v7.widget.Toolbar;
+        import android.util.Log;
         import android.view.Menu;
         import android.view.MenuInflater;
         import android.view.MenuItem;
@@ -36,16 +40,15 @@ public class BaseActivity extends AppCompatActivity {
 //        postReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_POST_QUERY);
         mContext = this;
         mAuth = FirebaseAuth.getInstance();
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if(user != null) {
-//                    userName = user.getDisplayName();
-//                }
-//            }
-//        };
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user != null) {
+                }
+            }
+        };
     }
 
     @Override

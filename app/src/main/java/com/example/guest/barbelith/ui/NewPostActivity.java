@@ -69,7 +69,7 @@ public class NewPostActivity extends BaseActivity implements View.OnClickListene
         if(content.length() < 75){
             Toast.makeText(NewPostActivity.this, "Please enter content of 75 characters or more.", Toast.LENGTH_SHORT).show();
         }else{
-            Post post = new Post(content, "Nobody Special");
+            Post post = new Post(content, mAuth.getCurrentUser().getUid());
             post.setTopicId(topicPushId);
 
             DatabaseReference databaseRef = FirebaseDatabase

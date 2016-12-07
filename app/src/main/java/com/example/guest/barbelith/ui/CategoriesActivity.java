@@ -44,30 +44,8 @@ public class CategoriesActivity extends BaseActivity implements View.OnClickList
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Log.v(">>>>>>>>", "Logged In");
-                    Log.d("", "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.v(">>>>>>>>", "Not Logged In");
-                    Log.d("", "onAuthStateChanged:signed_out");
-                }
-                // ...
-            }
-        };
-
-        ActionBar actionBar;
-
-        setTitle("Barbelith");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_Category);
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-//        actionBar.setBackgroundDrawable(new ColorDrawable(mainColor));
         toolbar.showOverflowMenu();
 
         mButton_Conversation.setOnClickListener(this);
