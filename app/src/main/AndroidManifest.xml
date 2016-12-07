@@ -21,7 +21,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.NewTopicActivity"
             android:noHistory="true"/>
-        <activity android:name=".ui.TopicDetailActivity" />
+        <activity android:name=".ui.TopicDetailActivity"
+            android:parentActivityName="com.example.guest.barbelith.ui.CategoryActivity"/>
         <activity android:name=".ui.NewPostActivity"
             android:noHistory="true"/>
         <activity android:name=".ui.LoginActivity"
