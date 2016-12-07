@@ -2,6 +2,7 @@ package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.guest.barbelith.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,11 +33,35 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
     @Bind(R.id.button_Creation) Button mButton_Creation;
     @Bind(R.id.button_Gathering) Button mButton_Gathering;
 
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.v(">>>>>>>>", "Logged In");
+                    Log.d("", "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.v(">>>>>>>>", "Not Logged In");
+                    Log.d("", "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
+
+        if(mAuth.getCurrentUser() != null){
+            Log.v(">>>>>>>>", mAuth.getCurrentUser().getUid());
+        }
 
         mButton_Conversation.setOnClickListener(this);
         mButton_Policy.setOnClickListener(this);

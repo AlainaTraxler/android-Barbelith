@@ -1,6 +1,8 @@
 package com.example.guest.barbelith.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.BinderThread;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -51,6 +53,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // ...
             }
         };
+
+
 
         mImageView_Signup.setOnClickListener(this);
         mImageView_Signin.setOnClickListener(this);
