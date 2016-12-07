@@ -91,7 +91,6 @@ public class NewPostActivity extends BaseActivity implements View.OnClickListene
             intent.putExtra("alphaColor", alphaColor);
             intent.putExtra("betaColor", betaColor);
             intent.putExtra("topic", Parcels.wrap(mTopic));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
     }

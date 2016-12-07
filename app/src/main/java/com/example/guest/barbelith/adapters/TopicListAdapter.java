@@ -58,6 +58,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
 
     public class TopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @Bind(R.id.textView_Title) TextView mTextView_Title;
+        @Bind(R.id.textView_ReplyCount) TextView mTextView_ReplyCount;
 
         private Context mContext;
 
@@ -82,6 +83,8 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
         public void bindTopic(Topic topic) {
             mFlipper++;
             mTextView_Title.setText(topic.getTitle());
+            mTextView_ReplyCount.setText(String.valueOf(topic.getReplyCount()));
+//            mTextView_ReplyCount.setText
             if(mFlipper % 2 == 0){
                 mTextView_Title.setBackgroundColor(alphaColor);
             }else{

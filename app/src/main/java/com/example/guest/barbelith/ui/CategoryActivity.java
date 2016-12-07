@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -64,7 +65,9 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
                 ArrayList<Topic> topics = new ArrayList<Topic>();
                 for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
                     Topic topic = topicSnapshot.getValue(Topic.class);
+                    topic.setReplyCount(topicSnapshot.child("replies").getChildrenCount());
                     topics.add(topic);
+
                 }
                 mAdapter = new TopicListAdapter(getApplicationContext(), topics, alphaColor, betaColor, mainColor);
                 mRecyclerView.setAdapter(mAdapter);

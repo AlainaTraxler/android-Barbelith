@@ -12,6 +12,7 @@ public class Topic {
     String userId;
     String category;
     String pushId;
+    long replyCount;
 
     public Topic() {}
 
@@ -27,6 +28,8 @@ public class Topic {
     public String getUserId() { return userId; }
     public String getCategory() { return category; }
     public String getPushId() { return pushId; }
+    public long getReplyCount() { return replyCount; }
 
     public void setPushId(String _pushId) { pushId = _pushId; }
+    public void setReplyCount(long _replyCount) { replyCount = _replyCount; };
 }
