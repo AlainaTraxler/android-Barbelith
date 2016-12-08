@@ -26,5 +26,27 @@
             android:src="@drawable/ic_add_circle_white_24dp" />
     </android.support.v7.widget.Toolbar>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Name"
+        android:layout_below="@+id/toolbar_Category"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="give it a name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Description"
+        android:layout_below="@+id/editText_Name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="and tell others about it" />
+
 
 </RelativeLayout>
