@@ -61,4 +61,8 @@
     <color name="colorGatheringBeta">#FFE0B2</color>
 
     <color name="colorActionBar">#ffffff</color>
+
+    <color name="colorBlackMain">#000000</color>
+    <color name="colorBlackAlpha">#E0E0E0</color>
+    <color name="colorBlackBeta">#BDBDBD</color>
 </resources>

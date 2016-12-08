@@ -64,6 +64,9 @@ public class BaseActivity extends AppCompatActivity {
         }else if(id == R.id.action_Categories){
             Intent intent = new Intent(mContext, CategoriesActivity.class);
             startActivity(intent);
+        }else if(id == R.id.action_Communities){
+            Intent intent = new Intent(mContext, CommunitiesActivity.class);
+            startActivity(intent);
         }
 
 //        if(id == R.id.action_main) {
