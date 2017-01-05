@@ -10,7 +10,7 @@ _An app that replicates the general experience of the 90s UBB bulletin boards._
 
 ## Setup/Installation Requirements
 
-* _Download from https://github.com/eloavox/android-BacklogInsurmountable and run in Android Studio v 2.21 or higher_
+* _Download from https://github.com/eloavox/android-Barbelithand run in Android Studio v 2.21 or higher_
 
 ## Known Bugs
 
